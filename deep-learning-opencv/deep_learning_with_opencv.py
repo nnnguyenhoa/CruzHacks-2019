@@ -22,6 +22,9 @@ args = vars(ap.parse_args())
 # load the input image from disk
 image = cv2.imread(args["image"])
 
+cv2.imshow("Image", image)
+print("image")
+
 # load the class labels from disk
 rows = open(args["labels"]).read().strip().split("\n")
 classes = [r[r.find(" ") + 1:].split(",")[0] for r in rows]
