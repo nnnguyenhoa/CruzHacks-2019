@@ -66,5 +66,7 @@ for (i, idx) in enumerate(idxs):
 # display the output image
 #cv2.imshow("Image", image)
 
+re = np.array([3,3], string)
+
 cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
