@@ -64,7 +64,8 @@ for (i, idx) in enumerate(idxs):
 		classes[idx], preds[0][idx]))
 
 # display the output image
-#cv2.imshow("Image", image)
+
+cv2.imshow("Image", image)
 
 #re = np.array([3,3], string)
 
