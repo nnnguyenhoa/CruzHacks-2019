@@ -71,8 +71,8 @@ li {
 }
 
 body {
-    background: #fff;
-    color: #444;
+    background: #454545;
+    color: #454545;
     font-size: 16px;
     font-weight: 300;
     font-family: 'Open Sans', Arial, sans-serif;
@@ -84,11 +84,11 @@ body {
 }
 
 ::-moz-selection {
-    color: #333;
+    color: rgb(131, 20, 235) !important;
 }
 
 ::selection {
-    color: #333;
+    color: rgb(131, 20, 235) !important;
 }
 
 /* scroll to top */
@@ -136,15 +136,7 @@ a.scrollup i:hover {
     display: block;
 }
 
-.row {
-    margin-bottom: 30px;
-}
-
-.row .row {
-    margin-bottom: 30px;
-}
-
-.row.nomargin {
+.row .row .row .row.nomargin {
     margin-bottom: 0;
 }
 
@@ -240,7 +232,7 @@ h4,
 h5,
 h6 {
     font-weight: 400;
-    color: #312f2b;
+    color: #ddd9d2;
     line-height: 1.1em;
     font-family: 'Open Sans', Arial, sans-serif;
 }
@@ -851,7 +843,6 @@ section#services p {
 
 section#services .service-box {
     text-align: center;
-    padding: 20px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -860,7 +851,7 @@ section#services .service-box {
 }
 
 section#services .span3:hover {
-    background: #e3e3e3;
+    background: #e3e3e3 !important;
 }
 
 section#services .service-box h2 {
@@ -1725,11 +1716,7 @@ i.icon-white {
     .navbar-inner .btn-navbar {
         margin: 20px 20px 0;
     }
-    .container {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    .navbar-inverse .navbar-inner {
+    .container .navbar-inverse .navbar-inner {
         padding: 0 0 30px;
     }
     .nav-collapse {
