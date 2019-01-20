@@ -6,7 +6,7 @@ var upload = multer({ dest: './images/' })
 const child_process = require('child_process');
 var fs = require('fs');
 var app = express();
-var sql = require('test.js');
+//var sql = require('test.js');
 
 app.use(express.bodyParser());
 app.use(cookieParser());
@@ -19,18 +19,18 @@ app.use(logger('dev'));
 //   }
 // });
 
-app.post('/login', function(req, res){
-    console.log('POST /');
-    console.dir(req.body);
-    res.cookie('user' , req.body.user);
-    res.cookie('pass' , req.body.pass).send('Cookie is set');
-    if(good) {
-    	res.status(200).send("good");
-    }
-    else {
-    	res.status(403).send("bad");
-    }
-});
+// app.post('/login', function(req, res){
+//     console.log('POST /');
+//     console.dir(req.body);
+//     res.cookie('user' , req.body.user);
+//     res.cookie('pass' , req.body.pass).send('Cookie is set');
+//     if(good) {
+//     	res.status(200).send("good");
+//     }
+//     else {
+//     	res.status(403).send("bad");
+//     }
+// });
 
 app.post('/photo', upload.single('eagle.png'), function(req, res, next){
     console.log('POST /');
