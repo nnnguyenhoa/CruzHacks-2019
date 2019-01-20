@@ -29,17 +29,41 @@
 					<!-- navigation -->
 					<nav class="pull-right nav-collapse collapse">
 						<ul id="menu-main" class="nav">
-							<li><a title="services" href="#services">Services</a></li>
-                            <li><a title="team" href="#about">About</a></li>
-							<li><a title="contact" href="#contact">Contact</a></li>
-							<li><a href="page.html">Login</a></li>
-                            <li><a href="signup.html">SignUp</a></li>
+                            <li><a title="upload" href="#Upload">Upload</a></li>
+                            <li><a title="history" href="#about">Your History</a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div id="header-wrapper" class="header-slider">
+		<header class="clearfix">
+			<div class="logo">
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+
+    <!-- section: services -->
+	<section id="Upload" class="section orange">
+		<div class="container">
+			<h4>Upload</h4>
+		<hr>
+       	<h2>Upload multiple files with the file dialog</h2>
+        <form id="Uploadform" action="fileupload" method="post" enctype="multipart/form-data">
+    <input type="file" name="filetoupload"><br>
+    <input type="submit">
+
+
+
+
 
 
 
@@ -52,18 +76,14 @@ $(function() {
     }
 
 })
+
+$("#Uploadform").submit(function(){
+    return false;
+})
 </script>
 
 
-<div id="drop-area">
 
-
-    <h3>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</h3>
-  <form action="fileupload" method="post" enctype="multipart/form-data">
-    <input type="file" name="filetoupload"><br>
-    <input type="submit">
-  </form>
-</div>
 
 
 

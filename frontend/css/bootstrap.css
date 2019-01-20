@@ -102,8 +102,6 @@ img {
     width: auto\9;
     height: auto;
     max-width: 100%;
-    vertical-align: middle;
-    border: 0;
     -ms-interpolation-mode: bicubic;
 }
 
@@ -328,11 +326,7 @@ a:focus {
     width: 300px;
 }
 
-.span3 {
-    width: 220px;
-}
-
-.span2 {
+.span3 .span2 {
     width: 140px;
 }
 

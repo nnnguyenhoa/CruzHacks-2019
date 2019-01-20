@@ -106,21 +106,20 @@ function GotoDashboard() {
 </head>
 <body>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
-		<h2>Sign Up</h2>
-		<p>It's free and only takes a minute.</p>
+    <form action="dashboard.html" method="post">
+		<h2>Signup</h2>
 		<hr>
         <div class="form-group">
-        	<input type="text" class="form-control" name="username" placeholder="Username" required="required">
+        	<input type="text" id="userInput" class="form-control"name="username" placeholder="Username" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+             <input type="password" id="passInput" class="form-control" name="password" placeholder="Password" required="required">
         </div>
-		<div class="form-group">
+        <div class="form-group">
             <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
         </div>
 		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+            <button onclick="GotoDashboard()" class="btn btn-primary btn-block btn-lg">Signup</button>
         </div>
 		<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
     </form>
@@ -128,3 +127,4 @@ function GotoDashboard() {
 </div>
 </body>
 </html>
+
