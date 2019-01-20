@@ -82,9 +82,9 @@ elif LABEL in recycling:
 	print("This item should be recycled")
 elif LABEL in garbage:
 	print("This item should be thrown out")
-print(recycling)
-print(organic)
-print(garbage)
+# print(recycling)
+# print(organic)
+# print(garbage)
 
 cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
