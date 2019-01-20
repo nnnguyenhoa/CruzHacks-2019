@@ -7,6 +7,7 @@ import numpy as np
 import argparse
 import time
 import cv2
+import sys
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -78,17 +79,19 @@ garbage = np.array(['plastic', 'plastic bag', 'bag', 'bald eagle'], dtype=str)
 
 print("     ")
 
+# Return 0 is reserved for if it makes it to end of program
 if LABEL in organic:
-	# return 0
+	sys.exit(1)
 elif LABEL in recycling:
-	# return 1
+	sys.exit(2)
 elif LABEL in garbage:
-	# return 2
+	sys.exit(3)
+
 # print(recycling)
 # print(organic)
 # print(garbage)
 
-cv2.imwrite("Image.png", image)
+#cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
 
 #call()
