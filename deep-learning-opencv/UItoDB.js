@@ -17,10 +17,10 @@ app.post('/signup', function(req, res){
 //log in to postgreSQL info
 const client = new Client({
 	user: 'projuser',
-	host: '',
-	database:'',
-	password: '',
-	port: 3211,
+	host: '34.73.8.59',
+	database:'users',
+	password: 'abc123',
+	port: 5432,
 })
 client.connect()
 
