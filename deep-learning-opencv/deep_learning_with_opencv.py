@@ -70,7 +70,7 @@ for (i, idx) in enumerate(idxs):
 
 # display the output image
 
-cv2.imshow("Image", image)
+# cv2.imshow("Image", image)
 
 recycling = np.array(['can', 'bottle', 'fork', 'knife', 'paper', 'cup', 'bowl', 'spoon'], dtype=str)
 organic = np.array(['pomegranate', 'apple', 'banana', 'food', 'eggs', 'rice', 'chocolate', 'milk', 'burger', 'pizza'], dtype=str)

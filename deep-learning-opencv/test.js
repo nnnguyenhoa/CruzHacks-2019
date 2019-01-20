@@ -1,5 +1,5 @@
-var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py'])
-
+// var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py'])
+var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py' , '--image' , 'images/eagle.png', '--prototxt', 'bvlc_googlenet.prototxt', '--model', 'bvlc_googlenet.caffemodel', '--labels', 'synset_words.txt'])
 // runs when script closes
 child.on("close", (code, signal) => {
     console.log("return code: " + code);
