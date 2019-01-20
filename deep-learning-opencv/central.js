@@ -13,7 +13,7 @@ app.use(cookieParser());
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html');
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
 app.post('/login', function(req, res){
