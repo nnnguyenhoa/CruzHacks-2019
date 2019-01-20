@@ -1,3 +1,4 @@
+#def call():
 # USAGE
 # python deep_learning_with_opencv.py --image images/jemma.png --prototxt bvlc_googlenet.prototxt --model bvlc_googlenet.caffemodel --labels synset_words.txt
 
@@ -6,6 +7,7 @@ import numpy as np
 import argparse
 import time
 import cv2
+import sys
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -68,23 +70,28 @@ for (i, idx) in enumerate(idxs):
 
 # display the output image
 
-cv2.imshow("Image", image)
+# cv2.imshow("Image", image)
 
 recycling = np.array(['can', 'bottle', 'fork', 'knife', 'paper', 'cup', 'bowl', 'spoon'], dtype=str)
 organic = np.array(['pomegranate', 'apple', 'banana', 'food', 'eggs', 'rice', 'chocolate', 'milk', 'burger', 'pizza'], dtype=str)
-garbage = np.array(['plastic', 'plastic bag', 'bag'], dtype=str)
+garbage = np.array(['plastic', 'plastic bag', 'bag', 'bald eagle'], dtype=str)
 
 
 print("     ")
+
+# Return 0 is reserved for if it makes it to end of program
 if LABEL in organic:
-	print("Compost is good")
+	sys.exit(1)
 elif LABEL in recycling:
-	print("This item should be recycled")
+	sys.exit(2)
 elif LABEL in garbage:
-	print("This item should be thrown out")
+	sys.exit(3)
+
 # print(recycling)
 # print(organic)
 # print(garbage)
 
-cv2.imwrite("Image.png", image)
+#cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
+
+#call()
