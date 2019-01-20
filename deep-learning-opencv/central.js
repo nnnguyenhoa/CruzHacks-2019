@@ -12,10 +12,7 @@ var path = require('path');
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(logger('dev'));
-app.use(express.static('js'))
-app.use(express.static('css'))
-app.use(express.static('img'))
-app.use(express.static('color'))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
