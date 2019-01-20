@@ -6,6 +6,7 @@ import numpy as np
 import argparse
 import time
 import cv2
+import array from numpy
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -20,9 +21,11 @@ ap.add_argument("-l", "--labels", required=True,
 args = vars(ap.parse_args())
 
 # load the input image from disk
+# image = cv2.imread(args["image"])
 image = cv2.imread(args["image"])
+# image = cv2.LoadImage(args["image"], CV_LOAD_IMAGE_COLOR)
 
-cv2.imshow("Image", image)
+#cv2.imshow("Image", image)
 print("image")
 
 # load the class labels from disk
@@ -70,7 +73,9 @@ for (i, idx) in enumerate(idxs):
 
 cv2.imshow("Image", image)
 
-#re = np.array([3,3], string)
+recycling = array([1,10], string)
+organic = array([1,10], string)
+garbage = array([1,10], string)
 
 cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
