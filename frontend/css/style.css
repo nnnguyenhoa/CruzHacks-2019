@@ -71,8 +71,8 @@ li {
 }
 
 body {
-    background: #fff;
-    color: #444;
+    background: #454545;
+    color: #454545;
     font-size: 16px;
     font-weight: 300;
     font-family: 'Open Sans', Arial, sans-serif;
@@ -84,11 +84,11 @@ body {
 }
 
 ::-moz-selection {
-    color: #333;
+    color: rgb(131, 20, 235) !important;
 }
 
 ::selection {
-    color: #333;
+    color: rgb(131, 20, 235) !important;
 }
 
 /* scroll to top */
@@ -860,7 +860,7 @@ section#services .service-box {
 }
 
 section#services .span3:hover {
-    background: #e3e3e3;
+    background: #e3e3e3 !important;
 }
 
 section#services .service-box h2 {
