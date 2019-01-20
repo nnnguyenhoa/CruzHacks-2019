@@ -4,15 +4,16 @@ var cookieParser = require('cookie-parser');
 var multer  = require('multer')
 var upload = multer({ dest: './images/' })
 const child_process = require('child_process');
+var bodyParser = require('body-parser')
 var fs = require('fs');
 var app = express();
 
-app.use(express.bodyParser());
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
-    res.send('../frontend/index.html');
+    res.sendFile('../frontend/index.html');
 });
 
 app.post('/login', function(req, res){
