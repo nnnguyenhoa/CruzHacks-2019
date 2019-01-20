@@ -6,6 +6,7 @@ var upload = multer({ dest: './images/' })
 const child_process = require('child_process');
 var fs = require('fs');
 var app = express();
+var sql = require('test.js');
 
 app.use(express.bodyParser());
 app.use(cookieParser());
@@ -31,10 +32,32 @@ app.post('/login', function(req, res){
     }
 });
 
-app.post('/photo', upload.single('picture.png'), function(req, res, next){
+app.post('/photo', upload.single('eagle.png'), function(req, res, next){
     console.log('POST /');
     console.log(req.body.filetoupload);
-    child_process.exec(`python3 /home/siddh991/undecided/deep-learning-opencv/deep_learning_with_opencv.py --image images/picture.png --prototxt bvlc_googlenet.prototxt --model bvlc_googlenet.caffemodel --labels synset_words.txt`);
+    
+    // var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py'])
+    var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py' , '--image' , 'images/eagle.png', '--prototxt', 'bvlc_googlenet.prototxt', '--model', 'bvlc_googlenet.caffemodel', '--labels', 'synset_words.txt'])
+    // runs when script closes
+    child.on("close", (code, signal) => {
+        // console.log("return code: " + code);
+
+        if (code == 1){
+            console.log("organic")
+        }
+        else if (code == 2){
+            console.log("recycling")
+        } 
+        else{
+            console.log("garbage")
+        }
+    })
+
+    // runs if script throws an error
+    child.on("error", (err) => {
+        console.log("ERROR:");
+        console.error(err);
+    })
 });
 
 port = 3000;
