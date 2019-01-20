@@ -13,7 +13,7 @@ app.use(cookieParser());
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
-    res.sendFile('../frontend/index.html');
+    res.send('what's up');
 });
 
 app.post('/login', function(req, res){
@@ -91,4 +91,4 @@ app.post('/photo', upload.single('eagle.png'), function(req, res, next){
 
 port = 3000;
 app.listen(port);
-console.log('Listening at 10.142.0.2:' + port)
+console.log('Listening at localhost:' + port)
