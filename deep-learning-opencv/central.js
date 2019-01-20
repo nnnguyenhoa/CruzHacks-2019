@@ -28,11 +28,7 @@ app.post('/login', function(req, res){
     else {
     	res.status(403).send("bad");
     }
-});
-
-app.get('/', (req, res) => {
-    res.sendFile('../frontend/index.html');
-});
+});  
 
 app.post('/photo', upload.single('eagle.png'), function(req, res, next){
     console.log(req.user);
@@ -46,48 +42,58 @@ app.post('/photo', upload.single('eagle.png'), function(req, res, next){
     })
     client.connect()
 
-    var itemCount = 0;
+    // var itemCount = 0;
+    var trial = 'INSERT INTO persons (username, password, garbage, organic, recycling) VALUES ("Siddharth_S", "123456", 0, 0, 0)';
+    var trial_2 = 'INSERT INTO persons (username, password, garbage, organic, recycling) VALUES ("Srishti_A", "654321", 0, 0, 0)';
+
 
     console.log('POST /');
     console.log(req.body.filetoupload);
     
-    // var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py' , '--image' , 'deep_images/eagle.png', '--prototxt', 'bvlc_googlenet.prototxt', '--model', 'bvlc_googlenet.caffemodel', '--labels', 'synset_words.txt'])
-    // // runs when script closes
-    // child.on("close", (code, signal) => {
+    var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py' , '--image' , 'deep_images/eagle.png', '--prototxt', 'bvlc_googlenet.prototxt', '--model', 'bvlc_googlenet.caffemodel', '--labels', 'synset_words.txt'])
+    // runs when script closes
+    child.on("close", (code, signal) => {
 
 
-    //     if (code == 1){
-    //         console.log("organic")
-    //         const text = `SELECT organic FROM persons WHERE username = ${getCookie("user")}`;
-    //     }
-    //     else if (code == 2){
-    //         console.log("recycling")
-    //         const text = `SELECT recycle FROM persons WHERE username = ${getCookie("user")}`;
-    //     } 
-    //     else{
-    //         console.log("garbage")
-    //         const text = 'SELECT garbage FROM persons WHERE username' = getCookie("user");
-    //     }
-    // })
+        if (code == 1){
+            console.log("organic")
+            const text = `SELECT organic FROM persons WHERE username = ${getCookie("user")}`;
+            text++
+            var youtube = `UPDATE persons SET organic =` + text + `WHERE username = ${getCookie("user")}`
 
-    // client.query(text, (err, res) => {
-    //     if (err) {
-    //         // res.status(403).send("bad");
-    //         return false
-    //     }
-    //     else {
-    //         // res.status(200).send("good");
-    //         itemCount = res + 1
-    //     }
-    // })
+        }
+        else if (code == 2){
+            console.log("recycling")
+            const text = `SELECT recycle FROM persons WHERE username = ${getCookie("user")}`;
+            text++
+            var youtube = `UPDATE persons SET recycling =` + text + `WHERE username = ${getCookie("user")}`
+        } 
+        else{
+            console.log("garbage")
+            const text = `SELECT garbage FROM persons WHERE username = ${getCookie("user")}`;
+            text++
+            var youtube = `UPDATE persons SET garbage =` + text + `WHERE username = ${getCookie("user")}`
+        }
 
+    })    
+
+    client.query(text, (err, res) => {
+        if (err) {
+            // res.status(403).send("bad");
+            return false
+        }
+        else {
+            // res.status(200).send("good");
+            itemCount = res + 1
+        }
+    })
 
 
     // runs if script throws an error
-    // child.on("error", (err) => {
-    //     console.log("ERROR:");
-    //     console.error(err);
-    // })
+    child.on("error", (err) => {
+        console.log("ERROR:");
+        console.error(err);
+    })
 });
 
 port = 3000;
