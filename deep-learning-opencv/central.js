@@ -13,8 +13,7 @@ app.use(cookieParser());
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
-    console.log("Index page hit");
-    res.send('what\'s up');
+    res.sendFile('../frontend/index.html');
 });
 
 app.post('/login', function(req, res){
