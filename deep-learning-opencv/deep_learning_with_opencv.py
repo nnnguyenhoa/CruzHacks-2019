@@ -21,6 +21,7 @@ args = vars(ap.parse_args())
 
 # load the input image from disk
 image = cv2.imread(args["image"])
+# image = cv2.LoadImage(args["image"], CV_LOAD_IMAGE_COLOR)
 
 # load the class labels from disk
 rows = open(args["labels"]).read().strip().split("\n")
@@ -34,7 +35,7 @@ classes = [r[r.find(" ") + 1:].split(",")[0] for r in rows]
 blob = cv2.dnn.blobFromImage(image, 1, (224, 224), (104, 117, 123))
 
 # load our serialized model from disk
-print("[INFO] loading model...")
+# print("[INFO] loading model...")
 net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 
 # set the blob as input to the network and perform a forward-pass to
@@ -43,7 +44,7 @@ net.setInput(blob)
 start = time.time()
 preds = net.forward()
 end = time.time()
-print("[INFO] classification took {:.5} seconds".format(end - start))
+# print("[INFO] classification took {:.5} seconds".format(end - start))
 
 # sort the indexes of the probabilities in descending order (higher
 # probabilitiy first) and grab the top-5 predictions
@@ -60,11 +61,30 @@ for (i, idx) in enumerate(idxs):
 
 	# display the predicted label + associated probability to the
 	# console	
-	print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1,
-		classes[idx], preds[0][idx]))
+	# print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1,
+		# classes[idx], preds[0][idx]))
+	if i == 0:
+		LABEL = "{}".format(classes[idx])
 
 # display the output image
-#cv2.imshow("Image", image)
+
+cv2.imshow("Image", image)
+
+recycling = np.array(['can', 'bottle', 'fork', 'knife', 'paper', 'cup', 'bowl', 'spoon'], dtype=str)
+organic = np.array(['pomegranate', 'apple', 'banana', 'food', 'eggs', 'rice', 'chocolate', 'milk', 'burger', 'pizza'], dtype=str)
+garbage = np.array(['plastic', 'plastic bag', 'bag'], dtype=str)
+
+
+print("     ")
+if LABEL in organic:
+	print("Compost is good")
+elif LABEL in recycling:
+	print("This item should be recycled")
+elif LABEL in garbage:
+	print("This item should be thrown out")
+# print(recycling)
+# print(organic)
+# print(garbage)
 
 cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
