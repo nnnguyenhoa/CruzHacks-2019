@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.post('/login', function(req, res){
@@ -51,7 +51,7 @@ app.post('/photo', upload.single('eagle.png'), function(req, res, next){
     console.log('POST /');
     console.log(req.body.filetoupload);
     
-    // var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py' , '--image' , 'images/eagle.png', '--prototxt', 'bvlc_googlenet.prototxt', '--model', 'bvlc_googlenet.caffemodel', '--labels', 'synset_words.txt'])
+    // var child = require('child_process').spawn('python', ['deep_learning_with_opencv.py' , '--image' , 'deep_images/eagle.png', '--prototxt', 'bvlc_googlenet.prototxt', '--model', 'bvlc_googlenet.caffemodel', '--labels', 'synset_words.txt'])
     // // runs when script closes
     // child.on("close", (code, signal) => {
 
