@@ -1,3 +1,4 @@
+#def call():
 # USAGE
 # python deep_learning_with_opencv.py --image images/jemma.png --prototxt bvlc_googlenet.prototxt --model bvlc_googlenet.caffemodel --labels synset_words.txt
 
@@ -72,19 +73,22 @@ cv2.imshow("Image", image)
 
 recycling = np.array(['can', 'bottle', 'fork', 'knife', 'paper', 'cup', 'bowl', 'spoon'], dtype=str)
 organic = np.array(['pomegranate', 'apple', 'banana', 'food', 'eggs', 'rice', 'chocolate', 'milk', 'burger', 'pizza'], dtype=str)
-garbage = np.array(['plastic', 'plastic bag', 'bag'], dtype=str)
+garbage = np.array(['plastic', 'plastic bag', 'bag', 'bald eagle'], dtype=str)
 
 
 print("     ")
+
 if LABEL in organic:
-	print("Compost is good")
+	# return 0
 elif LABEL in recycling:
-	print("This item should be recycled")
+	# return 1
 elif LABEL in garbage:
-	print("This item should be thrown out")
+	# return 2
 # print(recycling)
 # print(organic)
 # print(garbage)
 
 cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
+
+#call()
