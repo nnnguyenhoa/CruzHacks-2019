@@ -6,7 +6,6 @@ import numpy as np
 import argparse
 import time
 import cv2
-import array from numpy
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -66,16 +65,26 @@ for (i, idx) in enumerate(idxs):
 
 	# display the predicted label + associated probability to the
 	# console	
-	print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1,
-		classes[idx], preds[0][idx]))
+	# print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1,
+		# classes[idx], preds[0][idx]))
+	if i == 0:
+		print("label: {}".format(classes[idx]))
 
 # display the output image
 
 cv2.imshow("Image", image)
 
-recycling = array([1,10], string)
-organic = array([1,10], string)
-garbage = array([1,10], string)
+recycling = np.array(['can', 'bottle', 'fork', 'knife', 'paper', 'cup', 'bowl', 'spoon'], dtype=str)
+organic = np.array(['pomegranate', 'apple', 'banana', 'food', 'eggs', 'rice', 'chocolate', 'milk', 'burger', 'pizza'], dtype=str)
+garbage = np.array(['plastic', 'plastic bag', 'bag'], dtype=str)
+
+
+print("---")
+# print("label: {}".format(classes[idx]))
+# print(preds[0])
+print(recycling)
+print(organic)
+print(garbage)
 
 cv2.imwrite("Image.png", image)
 cv2.waitKey(0)
